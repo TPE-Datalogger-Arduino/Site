@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `datalog_meteo`;
 CREATE TABLE IF NOT EXISTS `datalog_meteo` (
   `temps` DATETIME NOT NULL,
-  `temperature` decimal(3,2) DEFAULT NULL,
-  `humidite` decimal(3,2) DEFAULT NULL,
+  `temperature` decimal(3,2) NOT NULL,
+  `humidite` decimal(3,2) NOT NULL,
   PRIMARY KEY (`temps`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
