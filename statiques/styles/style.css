@@ -98,6 +98,12 @@ footer {
 	text-align: right;
 }
 
+#logo-github {
+	padding-left: 1rem;
+	max-height: 1.5em;
+	vertical-align: middle;
+}
+
 /* Paragraphes */
 section p {
 	margin-bottom: 1ex;
@@ -258,7 +264,7 @@ select {
 	}
 	
 	#bandeau #nom-site {
-		width: calc(100% - 2rem - 18px); /* width = 100 % − 2 × margin(.bouton) − width(.bouton) */
+		width: calc(100% - 2rem - 18px); /* width = 100 % − 2 × margin(#bouton) − width(#bouton) */
 	}
 	
 	#bandeau #navigation {
