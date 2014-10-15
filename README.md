@@ -1,4 +1,4 @@
 TPE-Datalogger-Arduino
 ======================
 
-TPE sur un datalogger Arduino (lycée Rabelais, Chinon)
+Site du TPE sur un datalogger Arduino (lycée Rabelais, Chinon)
