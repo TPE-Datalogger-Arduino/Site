@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `datalog_meteo`;
 CREATE TABLE IF NOT EXISTS `datalog_meteo` (
-  `temps` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `temps` DATETIME NOT NULL,
   `temperature` decimal(3,2) DEFAULT NULL,
   `humidite` decimal(3,2) DEFAULT NULL,
   PRIMARY KEY (`temps`)
