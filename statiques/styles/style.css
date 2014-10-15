@@ -1,0 +1,301 @@
+/* Feuille de style du site web du TPE
+   Auteurs : Téofil Adamski, Rémi Bruyère, Clément Bidault et Samy Plat */
+
+/* Style général
+   ============= */
+
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/* Corps du document */
+body {
+	font: 11pt "Raleway", sans-serif;
+	color: #222;
+}
+
+/* Page entière */
+#page {
+	background-color: #fcfcfc;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+/* Bandeau */
+#bandeau {
+	padding: 1rem 3rem;
+	background-color: #eee;
+	box-shadow: 0px -3px 12px #888;
+	background-color: #fff;
+}
+
+#bandeau #nom-site {
+	float: left;
+	width: 35%;
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+#bandeau #nom-site a:hover {
+	border: medium none;
+}
+
+#bandeau #navigation {
+	float: right;
+	position: relative;
+	top: calc(1.25rem - 11pt);
+}
+
+#bandeau a {
+	text-decoration: none;
+}
+
+#bandeau a:hover {
+	padding-bottom: .25rem;
+	border-bottom: 1px solid #fafafa;
+}
+
+#bandeau ul {
+	list-style-type: none;
+}
+
+#bandeau ul li {
+	float: left;
+	padding-left: 2rem;
+}
+
+/* Section */
+
+section header {
+	font-size: 1.5rem;
+	border-bottom: 1px solid #EEE;
+	padding: 1rem 10%; /* 10 % = 1/2 × width(#contenu) */
+}
+
+/* Contenu */
+#contenu {
+	width: 80%;
+	margin: auto
+}
+
+/* Mise des 2 colonnes de l'en-t^ete à la m^eme taille */
+.nettoyer {
+	clear: both;
+}
+
+/* Pied-de-page */
+footer {
+	padding: .5rem;
+	margin-top: 2rem;
+	border-top: 1px solid #eee;
+	width: calc(100% - 1rem); /* width = 100 % − 2 × padding */
+	font-style: italic;
+	text-align: right;
+}
+
+/* Paragraphes */
+section p {
+	margin-bottom: 1ex;
+	text-align: justify;
+	line-height: 1.4rem;
+}
+
+/* Liens */
+a {
+	color: inherit;
+}
+
+section a {
+	color: #bbb;
+}
+
+section a:hover {
+	text-decoration: none;
+}
+
+/* Titres */
+section header h1 {
+	font-weight: normal;
+}
+
+section h2,
+section h3,
+section h4 {
+	margin: 1em 0 1ex;
+}
+
+/* Liste */
+section ul {
+	margin-left: 2rem;
+	list-style-type: circle;
+}
+
+section li {
+	margin-bottom: .25rem;
+}
+
+/* Codes */
+pre,
+code {
+	font-family: "Ubuntu Mono", Courier, monospace;
+}
+
+/* Citations */
+blockquote {
+	margin: 1rem;
+	padding: 0 1rem;
+	border-left: 5px solid #eee;
+}
+
+/* Tableaux */
+section table {
+	margin: 1rem auto;
+	border-spacing: 0;
+	text-align: center;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+section thead {
+	background-color: #eee;
+	font-weight: bold;
+}
+
+section table td {
+	padding: 5px;
+}
+
+table td:first-child, table th:first-child {
+	border-left: 1px solid #eee;
+}
+
+table td, table th {
+	border-right: 1px solid #eee;
+}
+
+section table tbody tr {
+	background: #fafafa;
+}
+
+table tbody tr:nth-child(2n+1) {
+	background-color: #fdfdfd;
+}
+
+/* Images */
+section img {
+	margin: 1rem auto;
+	max-width: 100%;
+}
+
+/* Noms de famille */
+.nom {
+	font-variant: small-caps;
+}
+
+/* Éléments des formulaires */
+button,
+input[type=text],
+select {
+	padding: 5px;
+	vertical-align: middle;
+	font: inherit;
+}
+
+button {
+	background-color: #ddd;
+	color: #fafafa;
+}
+
+button:hover {
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+input[type=text] {
+	border: 1px solid #ddd;
+}
+
+select {
+	background-color: transparent;
+}
+
+/* Media-queries
+   ============= */
+
+/* Bouton pour le menu mobile */
+#bouton {
+	display: none;
+	float: right;
+	margin: .75rem;
+	cursor: pointer;
+}
+
+.barre {
+	display: block;
+	width: 18px;
+	height: 3px;
+	background-color: #bbb;
+}
+
+.barre + .barre {
+	margin-top: 3px;
+}
+
+/* Version petit écran */
+@media screen and (max-width: 979px) {
+	#bandeau {
+		padding: 1rem;
+	}
+	
+	#bandeau a:hover {
+		padding: 0;
+		border: none;
+	}
+	
+	#bandeau #nom-site {
+		width: calc(100% - 2rem - 18px); /* width = 100 % − 2 × margin(.bouton) − width(.bouton) */
+	}
+	
+	#bandeau #navigation {
+		display: none;
+	}
+	
+	#bouton {
+		display: inline-block;
+	}
+	
+	#bandeau #navigation {
+		float: left;
+		width: 100%;
+	}
+	
+	#bandeau ul li {
+		width: calc(100% - 1rem); /* width = 100 % − 2 × padding(li) */
+		padding: .5rem;
+		position: static;
+	}
+	
+	#bandeau ul li:hover {
+		background-color: #fafafa;
+	}
+	
+	#bandeau #navigation a {
+		display: block;
+		width: 100%;
+	}
+	
+	section header {
+		padding: 1rem 5%;
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+	#contenu {
+		width: 90%;
+	}
+}
