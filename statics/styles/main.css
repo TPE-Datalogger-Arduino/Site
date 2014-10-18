@@ -285,6 +285,10 @@ select {
 		display: none;
 	}
 	
+	.affiche {
+		display: block !important;
+	}
+	
 	#bouton {
 		display: inline-block;
 	}

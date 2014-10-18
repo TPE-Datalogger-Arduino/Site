@@ -2,11 +2,5 @@
 window.onload=function() {
 	var bouton = document.getElementById('bouton');
 	var nav = document.getElementById('navigation');
-	bouton.onclick = function(e) {
-		if (nav.style.display == "block") {
-			nav.style.display = "none";
-		} else {
-			nav.style.display = "block";
-		}
-	};
+	bouton.onclick = function(e) {nav.className == "affiche" ? nav.removeAttribute("class") : nav.className = "affiche"};
 };
