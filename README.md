@@ -1,3 +1,5 @@
+![Licence](http://img.shields.io/badge/licence-GPLv3-red.svg?style=flat)
+
 TPE datalogger Arduino
 ======================
 
