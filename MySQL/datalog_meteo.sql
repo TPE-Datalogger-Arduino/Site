@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 15 Octobre 2014 à 17:56
+-- Généré le :  Sam 18 Octobre 2014 à 18:11
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -25,14 +25,24 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `datalog_meteo`
 --
+-- Création :  Sam 18 Octobre 2014 à 16:09
+--
 
 DROP TABLE IF EXISTS `datalog_meteo`;
 CREATE TABLE IF NOT EXISTS `datalog_meteo` (
-  `temps` DATETIME NOT NULL,
-  `temperature` FLOAT NOT NULL,
-  `humidite` FLOAT NOT NULL,
-  PRIMARY KEY (`temps`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `temps` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `temperature` float NOT NULL,
+  `humidite` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `datalog_meteo`
+--
+
+INSERT INTO `datalog_meteo` (`id`, `temps`, `temperature`, `humidite`) VALUES
+(1, '2014-10-18 16:09:17', 105, 100);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
