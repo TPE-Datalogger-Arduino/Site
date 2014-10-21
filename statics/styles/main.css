@@ -43,10 +43,6 @@ body {
 	font-weight: 300;
 }
 
-#bandeau #nom-site a:hover {
-	border: medium none;
-}
-
 #bandeau #navigation {
 	float: right;
 	position: relative;
@@ -54,12 +50,12 @@ body {
 }
 
 #bandeau a {
+	color: inherit;
 	text-decoration: none;
 }
 
 #bandeau a:hover {
-	padding-bottom: .25rem;
-	border-bottom: 1px solid #e20000;
+	color: #e20000;
 }
 
 #bandeau ul {
@@ -78,7 +74,7 @@ section {
 
 section header {
 	font-size: 1.5rem;
-	border-bottom: 1px solid #EEE;
+	border-bottom: 1px solid #eee;
 	padding: 1rem 10%; /* 10 % = 1/2 × width(#contenu) */
 }
 
@@ -118,14 +114,10 @@ section p {
 
 /* Liens */
 a {
-	color: inherit;
-}
-
-section a {
 	color: #e20000;
 }
 
-section a:hover {
+a:hover {
 	text-decoration: none;
 }
 
