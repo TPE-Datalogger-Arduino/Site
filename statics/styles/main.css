@@ -1,5 +1,7 @@
 /* Feuille de style du site web du TPE
-   Auteurs : Téofil Adamski, Rémi Bruyère, Clément Bidault et Sammy Plat */
+   Auteurs : Téofil Adamski, Rémi Bruyère, Clément Bidault et Sammy Plat
+
+   Jeu de couleurs provenant de https://color.adobe.com/fr/Copie-de-Flat-design-colors-1-color-theme-4079805/
 
 /* Style général
    ============= */
@@ -20,9 +22,7 @@ body {
 /* Page entière */
 #page {
 	background-color: #fcfcfc;
-	position: absolute;
 	width: 100%;
-	height: 100%;
 }
 
 /* Bandeau */
@@ -30,6 +30,7 @@ body {
 	position: fixed;
 	left: 0;
 	right: 0;
+	top: 0;
 	padding: 1rem 3rem;
 	background-color: #efc94c;
 	box-shadow: 0px -3px 12px #efc94c;
@@ -96,10 +97,11 @@ footer {
 	text-align: right;
 }
 
-#logo-github {
+.logo-github {
 	padding-left: 1rem;
-	max-height: 1.5em;
 	vertical-align: middle;
+	color: initial;
+	font-size: 1.5em;
 }
 
 /* Paragraphes */
@@ -150,7 +152,9 @@ code {
 blockquote {
 	margin: 1rem;
 	padding: 0 1rem;
-	border-left: 5px solid #efc94c;
+	border-left: 5px solid #45b29d;
+	border-right: 5px solid #45b29d;
+	border-radius: 10px;
 }
 
 /* Tableaux */
@@ -194,6 +198,7 @@ input[type=text],
 select {
 	padding: 5px;
 	font: inherit;
+	border-radius: 5px;
 }
 
 button {
@@ -273,7 +278,10 @@ input[type=text] {
 	}
 
 	#bandeau #nom-site {
-		width: initial;
+		width: calc(100% - 2em);
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	
 	#bandeau #navigation {
@@ -309,15 +317,15 @@ input[type=text] {
 		display: block;
 		width: 100%;
 	}
-	
-	section header {
-		padding: 1rem 5%;
-	}
 }
 
 /* Version mobile */
 @media screen and (max-width: 768px) {
 	#contenu {
 		width: 90%;
+	}
+
+	section header {
+		padding: 1rem 5%;
 	}
 }
