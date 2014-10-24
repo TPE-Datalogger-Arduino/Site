@@ -31,9 +31,8 @@ body {
 	left: 0;
 	right: 0;
 	padding: 1rem 3rem;
-	background-color: #eee;
-	box-shadow: 0px -3px 12px #888;
-	background-color: #fff;
+	background-color: #efc94c;
+	box-shadow: 0px -3px 12px #efc94c;
 }
 
 #bandeau #nom-site {
@@ -45,8 +44,7 @@ body {
 
 #bandeau #navigation {
 	float: right;
-	position: relative;
-	top: calc(1.25rem - 11pt);
+	line-height: 2em;
 }
 
 #bandeau a {
@@ -55,7 +53,7 @@ body {
 }
 
 #bandeau a:hover {
-	color: #e20000;
+	color: #334d5c;
 }
 
 #bandeau ul {
@@ -93,8 +91,7 @@ section header {
 footer {
 	padding: .5rem;
 	margin-top: 2rem;
-	border-top: 1px dotted #e20000;
-	width: calc(100% - 1rem); /* width = 100 % − 2 × padding */
+	border-top: 1px dotted #efc94c;
 	font-style: italic;
 	text-align: right;
 }
@@ -114,11 +111,12 @@ section p {
 
 /* Liens */
 a {
-	color: #e20000;
+	color: #334d5c;
 }
 
 a:hover {
 	text-decoration: none;
+	color: #df5a49;
 }
 
 /* Titres */
@@ -152,7 +150,7 @@ code {
 blockquote {
 	margin: 1rem;
 	padding: 0 1rem;
-	border-left: 5px solid #eee;
+	border-left: 5px solid #efc94c;
 }
 
 /* Tableaux */
@@ -160,33 +158,28 @@ section table {
 	margin: 1rem auto;
 	border-spacing: 0;
 	text-align: center;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	border-top: 1px solid #efc94c;
+	border-bottom: 1px solid #efc94c;
 }
 
 section thead {
-	background-color: #eee;
-	font-weight: bold;
+	background-color: #efc94c;
 }
 
 section table td {
-	padding: 5px;
+	padding: 5px 10px;
 }
 
 table td:first-child, table th:first-child {
-	border-left: 1px solid #eee;
+	border-left: 1px solid #efc94c;
 }
 
 table td, table th {
-	border-right: 1px solid #eee;
-}
-
-section table tbody tr {
-	background: #fafafa;
+	border-right: 1px solid #efc94c;
 }
 
 table tbody tr:nth-child(2n+1) {
-	background-color: #fdfdfd;
+	background-color: rgba(238, 223, 39, .1);
 }
 
 /* Images */
@@ -200,26 +193,27 @@ button,
 input[type=text],
 select {
 	padding: 5px;
-	vertical-align: middle;
 	font: inherit;
 }
 
 button {
-	background-color: #ddd;
+	background-color: #df5a49;
 	color: white;
 }
 
 button:hover {
-	background-color: #ccc;
 	cursor: pointer;
+	background-color: #334d5c;
 }
 
-input[type=text] {
-	border: 1px solid #ddd;
-}
-
+input[type=text],
 select {
 	background-color: transparent;
+}
+
+
+input[type=text] {
+	border: 1px solid #df5a49;
 }
 
 /* Noms de famille */
@@ -238,7 +232,7 @@ select {
 
 .avancement span {
 	display: block;
-	background-color: #e20000;
+	background-color: #df5a49;
 	height: inherit;
 }
 
@@ -265,7 +259,7 @@ select {
 	display: block;
 	width: 18px;
 	height: 3px;
-	background-color: #bbb;
+	background-color: #222;
 }
 
 .barre + .barre {
@@ -302,12 +296,13 @@ select {
 	#bandeau #navigation {
 		float: left;
 		width: 100%;
+		line-height: initial;
+		margin-top: .5rem
 	}
 	
 	#bandeau ul li {
-		width: calc(100% - 1rem); /* width = 100 % − 2 × padding */
-		padding: .5rem;
-		position: static;
+		width: 100%;
+		padding: .5rem 0;
 	}
 
 	#bandeau #navigation a {
