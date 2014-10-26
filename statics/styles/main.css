@@ -1,4 +1,4 @@
-﻿/* Feuille de style du site web du TPE
+/* Feuille de style du site web du TPE
    Auteurs : Téofil Adamski, Rémi Bruyère, Clément Bidault et Sammy Plat
 
    Jeu de couleurs provenant de https://color.adobe.com/fr/Copie-de-Flat-design-colors-1-color-theme-4079805/ */
@@ -94,12 +94,6 @@ section header
 {
 	width: 80%;
 	margin: auto
-}
-
-/* Mise des 2 colonnes de l'en-tête à la même taille */
-.nettoyer 
-{
-	clear: both;
 }
 
 /* Pied-de-page */
