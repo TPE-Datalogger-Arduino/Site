@@ -29,5 +29,5 @@ CREATE TABLE IF NOT EXISTS `datalog_meteo` (
 -- Contenu de la table `datalog_meteo`
 --
 
-INSERT INTO `datalog_meteo` (`temps`, `temperature`, `humidite`) VALUES
-('2014-10-18 16:09:17', 105, 100);
+INSERT INTO `datalog_meteo` (`id`, `temps`, `temperature`, `humidite`) VALUES
+(1, '2014-10-18 16:09:17', 105, 100);
