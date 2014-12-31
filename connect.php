@@ -6,7 +6,6 @@ try
 	$user = LOGIN;
 	$pass = MDP;
 	$db = new PDO($dsnhost, $user, $pass);
-	echo 'Successfully logged in !';
 }
 catch(PDOException $e)
 {
