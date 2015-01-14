@@ -9,5 +9,5 @@ try
 }
 catch(PDOException $e)
 {
-	die('Could not connect to MySQL :' .$e->getMessage());
+	die('Could not connect to MySQL : ' .$e->getMessage());
 }
