@@ -11,3 +11,22 @@
 	</head>
 	
 	<body>
+		<div id="page">
+			<header id="bandeau">
+				<div id="nom-site">
+					<a href="/">TPE datalogger Arduino</a>
+				</div>
+				
+				<div id="bouton">
+					<div class="barre"></div>
+					<div class="barre"></div>
+					<div class="barre"></div>
+				</div>
+				
+				<nav id="navigation">
+					<ul>
+						<li><a href="/index2.php?page=data">Données brutes</a></li>
+						<li><a href="/index2.php?page=grapique">Graphique</a></li>
+					</ul>
+				</nav>
+			</header>

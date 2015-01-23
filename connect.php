@@ -5,7 +5,7 @@ try
 	$dsnhost = 'mysql:dbname='.BDD.';host='.SERVEUR_BDD;
 	$user = LOGIN;
 	$pass = MDP;
-	$db = new PDO($dsnhost, $user, $pass);
+	$GLOBALS['db'] = new PDO($dsnhost, $user, $pass);
 }
 catch(PDOException $e)
 {
