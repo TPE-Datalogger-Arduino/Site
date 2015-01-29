@@ -1,9 +1,9 @@
 <?php
 require 'sql.php';
-//require 'head.php';
+require 'head.php';
 
 
-if(!empty($_GET['page']))
+if(isset($_GET['page']) && !empty($_GET['page']))
 {
 	$page = htmlspecialchars($_GET['page']);
 
@@ -13,14 +13,18 @@ if(!empty($_GET['page']))
 		include 'data.php';
 		break;
 
-		case $page == 'graphique';
+		/*case $page == 'graphique';
 		include 'graphique.php';
-		break;
+		break;*/
 
 		default:
 		include 'about.php';
 		break;
 	}
+}
+else
+{
+	include 'about.php';
 }
 
 

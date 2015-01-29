@@ -1,40 +1,27 @@
 <?php
 require 'connect.php';
 
-function select($interval, $interval_type)
-{
-	/*
-		renvoie l'ensemble des données entre le temps actuel et un temps donné (par l'intervalle)
-	*/
-	$db = $GLOBALS['db'];
-	//requête à modifier quand humidité implémentée
-	$query = $db->prepare('SELECT temps, temperature FROM datalog_meteo WHERE temps BETWEEN DATEADD(-:interval, :interval_type, CURRENT_TIMESTAMP) AND NOW()'); // prépare la requête
-	
-	$query->execute(array(
-		'interval' => $interval,
-		'interval_type' => $interval_type)); // donne les valeurs à mettre et exécute la requête
-	$response = $query->fetchAll();
-	return $response;
-}
 
 function afficher_tableau($interval, $interval_type)
 {
 	/*
 		Crée et affiche le tableau
 	*/
+	$db = $GLOBALS['db'];
 	?>
 	<table>
 		<thead>
 			<tr>
 				<td>Date et Heure</td>
 				<td>Température (&deg;C)</td>
-				<!--<td>Humidité (%)</td>-->
+				<td>Pression (hPa)</td>
 			</tr>
 		</thead>
 					
 		<tbody>
 	<?php
-	$meteo = select($interval, $interval_type);
+	$query = $db->query('SELECT * FROM datalog_meteo WHERE temps BETWEEN DATE_SUB(NOW(), INTERVAL '.$interval.' '.$interval_type.') AND NOW()');
+	$meteo = $query->fetchAll (PDO::FETCH_ASSOC);
 	foreach($meteo as $data)
 	{
 	$temps = preg_replace('#(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}:\d{2})#','Le $3/$2/$1 à $4', $data['temps']);
@@ -42,7 +29,7 @@ function afficher_tableau($interval, $interval_type)
 		echo '<tr>';
 			echo '<td>'.$temps.'</td>';
 			echo '<td>'.$data['temperature'].'</td>';
-			//echo '<td>'.$data['humidite'].'</td>';
+			echo '<td>'.$data['pression'].'</td>';
 		echo '</tr>';
 	}	
 	?>
@@ -61,9 +48,9 @@ function insert($data)
 	{
 		$data['temps'] = 'CURRENT_TIMESTAMP'; // Si $data['temps'] est vide, on remplace par la valeur actuelle
 	}
-	//requête à modifier quand humidité implémentée
-	$query = $db->prepare('INSERT INTO datalog_meteo(temps, temperature) VALUES(?,?)');
+	$query = $db->prepare('INSERT INTO datalog_meteo(temps, temperature, pression) VALUES(?,?,?)');
 	$query->execute(array(
 		$data['temps'],
-		$data['temperature']));
+		$data['temperature'],
+		$data['pression']));
 }
