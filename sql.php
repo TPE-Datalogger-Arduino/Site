@@ -2,7 +2,7 @@
 require 'connect.php';
 
 
-function afficher_tableau($interval, $interval_type)
+function afficher_tableau($limit)
 {
 	/*
 		Crée et affiche le tableau
@@ -20,7 +20,7 @@ function afficher_tableau($interval, $interval_type)
 					
 		<tbody>
 	<?php
-	$query = $db->query('SELECT * FROM datalog_meteo WHERE temps BETWEEN DATE_SUB(NOW(), INTERVAL '.$interval.' '.$interval_type.') AND NOW()');
+	$query = $db->query('SELECT temps, temperature, pression FROM `datalog_meteo` ORDER BY id DESC LIMIT '.$limit);
 	$meteo = $query->fetchAll (PDO::FETCH_ASSOC);
 	foreach($meteo as $data)
 	{
@@ -38,19 +38,22 @@ function afficher_tableau($interval, $interval_type)
 	<?php
 }
 
+
+
 function insert($data)
 {
 	/*
 		insère les données de $data dans la table datalog_meteo
 	*/
 	$db = $GLOBALS['db'];
-	if(empty($data['temps']))
-	{
-		$data['temps'] = 'CURRENT_TIMESTAMP'; // Si $data['temps'] est vide, on remplace par la valeur actuelle
-	}
-	$query = $db->prepare('INSERT INTO datalog_meteo(temps, temperature, pression) VALUES(?,?,?)');
+	$query = $db->prepare('INSERT INTO datalog_meteo(temps, temperature, pression) VALUES(NOW(),?,?)');
 	$query->execute(array(
-		$data['temps'],
 		$data['temperature'],
 		$data['pression']));
+
+}
+
+function highchart($limit)
+{
+	
 }

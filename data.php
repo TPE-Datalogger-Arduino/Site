@@ -1,7 +1,10 @@
 <?php
+include 'sql.php';
+include 'head.php';
 
-$interval = (isset($_GET['interval']))? htmlspecialchars($_GET['interval']) : 10;
-$interval_type = (isset($_GET['interval_type']))? htmlspecialchars($_GET['interval_type']) : 'DAY';
+$limit = (isset($_GET['limit']))? htmlspecialchars($_GET['limit']) : 20;
 
-afficher_tableau($interval, $interval_type);
+
+afficher_tableau($limit);
+include 'footer.php';
 ?>

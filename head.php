@@ -25,8 +25,8 @@
 				
 				<nav id="navigation">
 					<ul>
-						<li><a href="/index2.php?page=data">Données brutes</a></li>
-						<li><a href="/index2.php?page=grapique">Graphique</a></li>
+						<li><a href="/data.php">Données brutes</a></li>
+						<li><a href="/graphique.php">Graphique</a></li>
 					</ul>
 				</nav>
 			</header>
