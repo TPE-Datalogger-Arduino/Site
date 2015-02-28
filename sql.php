@@ -31,7 +31,7 @@ function afficher_tableau($limit)
 			echo '<td>'.$data['temperature'].'</td>';
 			echo '<td>'.$data['pression'].'</td>';
 		echo '</tr>';
-	}	
+	}   
 	?>
 		</tbody>
 	</table>
@@ -55,5 +55,132 @@ function insert($data)
 
 function highchart($limit)
 {
-	
+	function formatTime($value)
+	{
+		return preg_replace('#(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})#', 'Date.UTC($1,$2,$3,$4,$5,$6)', $value);
+	}
+	$db = $GLOBALS['db'];
+	$temps = array(); $temperature = array(); $pression = array();
+	$query = $db->query("SELECT DATE_SUB(temps, INTERVAL 1 MONTH) AS time, temperature, pression FROM `datalog_meteo` ORDER BY id DESC LIMIT ".$limit);
+	$meteo = $query->fetchAll (PDO::FETCH_ASSOC);
+	/* Association variables avec les valeurs de la base */
+	foreach($meteo as $data)
+	{
+		$temps[] = $data['time'];
+		$temperature[] = $data['temperature'];
+		$pression[] = $data['pression'];
+	}
+	$temps = array_reverse($temps);
+	$temperature = array_reverse($temperature);
+	$pression = array_reverse($pression);
+	$titre = "'Données météo'";
+	$sous_titre = "'E'";
+	$script = "<script>
+	$(function () {
+		$('#container').highcharts({
+			chart: {
+				zoomType: 'xy'
+			},
+			title: {
+				text: $titre
+			},
+			subtitle :{
+				text: $sous_titre
+			},
+			xAxis: [{
+				categories: [";
+				for ($i=0; $i <sizeof($temps) ; $i++) { 
+					$script .= formatTime($temps[$i]).", ";
+				}
+				$script .= formatTime(end($temps));
+				$script.= "],
+
+				title: {
+					text: 'Date'
+				}
+			}],
+			yAxis: [{
+				labels: {
+					format: '{value}°C',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
+				},
+				title: {
+					text: 'Température',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
+				},
+				opposite: true
+
+			}, {
+				gridLineWidth: 0,
+				title: {
+					text: 'Pression',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				},
+				labels: {
+					format: '{value}hPa',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				}
+			}],
+			tooltip: {
+				shared: true
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'left',
+				x: 80,
+				vericalAlign: 'top',
+				y: 55,
+				floating: true,
+				backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+			},
+			series: [{
+				name: 'Température',
+				yAxis: 0,
+				tooltip: {
+					valueSuffix: ' °C'
+				},
+				data: [";
+			/*for ($i=0; $i < sizeof($temperature); $i++) { 
+				$script .= "[".formatTime($temps[$i]).", ".$temperature[$i]."], ";
+			}
+			$script .= "[".formatTime(end($temps)).", ".end($temperature)."]";*/
+			for ($i=0; $i <sizeof($temperature) ; $i++) { 
+				$script .= $temperature[$i].", ";
+			}
+			$script .= end($temperature);
+			$script .= "]
+			}, {
+				name: 'Pression',
+				yAxis: 1,
+				marker: {
+					enabled: false
+				},
+				dashStyle: 'shortdot',
+				tooltip: {
+					valueSuffix: ' hPa'
+				},
+				data: [";
+			/*for ($i=0; $i < sizeof($pression); $i++) { 
+				$script .= "[".formatTime($temps[$i]).", ".$pression[$i]."], ";
+			}
+			$script .= end($pression);*/
+			for ($i=0; $i <sizeof($pression) ; $i++) { 
+				$script .= $pression[$i].", ";
+			}
+			$script .= end($pression);
+			$script .= "]
+			}]
+		});
+	});
+	</script>";
+echo $script;
+
 }

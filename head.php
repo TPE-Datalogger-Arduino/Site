@@ -8,6 +8,7 @@
 		<link href="statics/styles/main.css" rel="stylesheet" type="text/css">
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"><!-- A modifier -->
 		<script src="statics/scripts/mobile-menu.js" type="application/javascript"></script>
+		<script src="statics/scripts/highcharts/jquery-1.8.2.min.js"></script>
 	</head>
 	
 	<body>

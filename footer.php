@@ -1,3 +1,4 @@
+		</div>
 		<footer>
 			Téofil <span class="nom">Adamski</span>,
 			Rémi <span class="nom">Bruyère</span>,
