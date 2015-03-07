@@ -73,8 +73,8 @@ function highchart($limit)
 	$temps = array_reverse($temps);
 	$temperature = array_reverse($temperature);
 	$pression = array_reverse($pression);
-	$titre = "'Données météo'";
-	$sous_titre = "'E'";
+	$titre = "'Pression et température'";
+	$sous_titre = "'20 derniers relevés'";
 	$script = "<script>
 	$(function () {
 		$('#container').highcharts({
@@ -88,6 +88,7 @@ function highchart($limit)
 				text: $sous_titre
 			},
 			xAxis: [{
+				type: 'datetime',
 				categories: [";
 				for ($i=0; $i <sizeof($temps) ; $i++) { 
 					$script .= formatTime($temps[$i]).", ";
@@ -97,6 +98,11 @@ function highchart($limit)
 
 				title: {
 					text: 'Date'
+				},
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%d/%m/%y %H:%M:%S', this.value);
+					}
 				}
 			}],
 			yAxis: [{
