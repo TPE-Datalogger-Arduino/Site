@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Graphique';
+$title = 'Tableau';
 
 include 'includes/sql.php';
 include 'includes/head.php';
@@ -9,23 +9,24 @@ include 'includes/head.php';
 $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET['limite']) : 20;
 
 ?>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.3/highcharts.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.3/modules/exporting.js"></script>
-	<?php chart($limit); // Insertion du script pour le graphique ?>
-
 	<header>
-		<h1>Graphique des <?php echo $limit; ?> derniers relevés</h1>
+		<h1>Tableau des <?php echo $limit; ?> derniers relevés</h1>
 	</header>
 
 	<div id="contenu">
 		<!-- Formulaire pour le nombre de relevé à afficher -->
-		<form method="get" action="graphique.php">
+		<form method="get" action="donnees.php">
 			Quantité de données : <input type="number" name="limite" value="<?php echo $limit; ?>" pattern="\d+">
 			<button type="submit">Go !</button>
 		</form>
 
-		<div id="graphique"></div>
+		<!-- Formulaire pour exporter au format CSV -->
+		<form method="get" action="exporter-csv.php">
+			Vous pouvez également exporter les données au format CSV pour les traiter dans un tableur. <input type="number" name="limite" value="<?php echo $limit; ?>" pattern="\d+">
+			<button type="submit">Exporter</button>
+		</form>
+
+		<?php table($limit); // Affichage du tableau ?>
 	</div>
 </section>
 
