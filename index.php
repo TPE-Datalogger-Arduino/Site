@@ -36,6 +36,4 @@ $lastData = lastData();
 			</div>
 		</div>
 	</div>
-</section>
-
 <?php include 'includes/footer.php';

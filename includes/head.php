@@ -5,9 +5,9 @@
 		<title><?php echo $title; ?> &lsaquo; TPE datalogger Arduino</title>
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400%7cRaleway:400,300,700" rel="stylesheet" type="text/css">
-		<link href="statics/styles/main.css" rel="stylesheet" type="text/css">
+		<link href="/statics/styles/main.css" rel="stylesheet" type="text/css">
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="statics/scripts/mobile-menu.js" type="application/javascript"></script>
+		<script src="/statics/scripts/mobile-menu.js" type="application/javascript"></script>
 	</head>
 
 	<body>
@@ -25,9 +25,9 @@
 
 				<nav id="navigation">
 					<ul>
-						<li><a href="donnees.php">Données brutes</a></li>
-						<li><a href="graphique.php">Graphique</a></li>
-						<li><a href="dossier.php">Dossier</a></li>
+						<li><a href="/donnees.php">Données brutes</a></li>
+						<li><a href="/graphique.php">Graphique</a></li>
+						<li><a href="/dossier.php">Dossier</a></li>
 					</ul>
 				</nav>
 			</header>

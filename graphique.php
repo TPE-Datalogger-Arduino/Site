@@ -27,6 +27,4 @@ $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET[
 
 		<div id="graphique"></div>
 	</div>
-</section>
-
 <?php include 'includes/footer.php';

@@ -16,6 +16,4 @@ include 'includes/head.php';
 			Votre navigateur ne gère pas l'affichage du PDF. Essaye de le <a href="https://cdn.rawgit.com/TPE-Datalogger-Arduino/Dossier/master/Dossier.pdf">télécharger</a> sur notre GitHub.
 		</object>
 	</div>
-</section>
-
 <?php include 'includes/footer.php';

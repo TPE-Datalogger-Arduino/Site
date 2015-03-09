@@ -28,6 +28,4 @@ $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET[
 
 		<?php table($limit); // Affichage du tableau ?>
 	</div>
-</section>
-
 <?php include 'includes/footer.php';
