@@ -12,7 +12,8 @@ $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET[
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.3/highcharts.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.3/modules/exporting.js"></script>
-	<?php chart($limit); // Insertion du script pour le graphique ?>
+	<?php // Insertion du script pour le graphique
+	chart($limit); ?>
 
 	<header>
 		<h1>Graphique des <?php echo $limit; ?> derniers relevés</h1>

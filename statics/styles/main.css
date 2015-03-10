@@ -86,7 +86,7 @@ section header
 {
 	font-size: 1.5rem;
 	border-bottom: 1px solid #eee;
-	padding: 1rem 10%; /* 10 % = 1/2 × (100 − width(#contenu)) */
+	padding: 1rem 10%; /* 10 % = 1/2 × (100 - width(#contenu)) */
 	margin-bottom: 2rem;
 }
 

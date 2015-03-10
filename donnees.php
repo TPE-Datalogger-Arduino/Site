@@ -26,6 +26,7 @@ $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET[
 			<button type="submit">Exporter</button>
 		</form>
 
-		<?php table($limit); // Affichage du tableau ?>
+		<?php // Affichage du tableau
+		table($limit); ?>
 	</div>
 <?php include 'includes/footer.php';

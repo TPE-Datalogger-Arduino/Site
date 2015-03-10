@@ -4,10 +4,7 @@ require 'settings.php';
 
 try
 {
-	$dsnhost = 'mysql:dbname='.BDD.';host='.SERVEUR_BDD;
-	$user = LOGIN;
-	$pass = MDP;
-	$GLOBALS['db'] = new PDO($dsnhost, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+	$GLOBALS['db'] = new PDO('mysql:dbname='.BDD.';host='.SERVEUR_BDD, LOGIN, MDP, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 }
 catch(PDOException $e)
 {
