@@ -1,5 +1,4 @@
 <?php
-/* Fichier contenant tous les fonctions pour accéder à la base de données */
 
 require 'connect.php'; // Inclusion du fichier pour la connexion à la base
 
@@ -70,7 +69,7 @@ function exportCSV($limit)
 	header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=Donnees.csv');
 
-	echo "Temps;Température;Pression\r\n"; // Affichage des données
+	echo "Temps;Température;Pression\r\n";
 
 	foreach($meteo as $data) // Parcours des données
 	{
@@ -216,7 +215,7 @@ function chart($limit)
 							echo end($temperature);
 							?>
 						]
-					}, { // Pression
+					}, { // Pressions
 						name: 'Pression',
 						yAxis: 1,
 						marker: {

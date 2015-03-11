@@ -5,7 +5,6 @@ $title = 'Graphique';
 include 'includes/sql.php';
 include 'includes/head.php';
 
-/* Valeur limite passé dans l'URL ; si elle est négative ou n'existe pas, on la met à 20 */
 $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET['limite']) : 20;
 
 ?>

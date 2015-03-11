@@ -5,7 +5,7 @@ $title = 'Tableau';
 include 'includes/sql.php';
 include 'includes/head.php';
 
-/* Valeur limite passé dans l'URL ; si elle est négative ou n'existe pas, on la met à 20 */
+/* Valeur limite passée dans l'URL ; si elle est négative ou n'existe pas, on la met à 20 */
 $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET['limite']) : 20;
 
 ?>
@@ -14,7 +14,7 @@ $limit = isset($_GET['limite']) && $_GET['limite'] > 0 ? htmlspecialchars($_GET[
 	</header>
 
 	<div id="contenu">
-		<!-- Formulaire pour le nombre de relevé à afficher -->
+		<!-- Formulaire pour le nombre de relevés à afficher -->
 		<form method="get" action="donnees.php">
 			Quantité de données : <input type="number" name="limite" value="<?php echo $limit; ?>" pattern="\d+">
 			<button type="submit">Go !</button>

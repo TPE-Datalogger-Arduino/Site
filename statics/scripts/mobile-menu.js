@@ -1,4 +1,3 @@
-/* Script pour afficher le menu mobile */
 window.onload = function () {
 	"use strict";
 

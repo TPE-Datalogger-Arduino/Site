@@ -7,7 +7,7 @@ $data = array(); // Création d'un tableau contenant les données
 if (isset($_GET['pass']) && $_GET['pass'] == '123') // On test si le mot de passe est bon.
 {
 	$data['temps'] = 'NOW()'; // Le temps est maintenant.
-	/* Si il y a une température donnée, alors on la convertit. Sinon, rien. */
+	/* S'il y a une température donnée, alors on la convertit. Sinon, rien. */
 	$data['temperature'] = (isset($_GET['temperature'])) ?
 								htmlspecialchars($_GET['temperature']) : NULL;
 	/* Idem pour la pression */
